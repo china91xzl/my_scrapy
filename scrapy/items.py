@@ -17,3 +17,5 @@ class MyScrapyItem(scrapy.Item):
 class FlightInfoItem(scrapy.Item):
     # define the fields for your item here like:
     city = scrapy.Field()
+    price = scrapy.Field()
+    date = scrapy.Field()

@@ -52,15 +52,17 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'my_scrapy.middlewares.MyScrapyDownloaderMiddleware': 543,
-#}
+# 激活中间件
+# DOWNLOADER_MIDDLEWARES = {
+#     'my_scrapy.middlewares.ProxyMiddleWare': 543,
+#     'my_scrapy.middlewares.UAMiddleware': 544
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
-    'scrapy.extensions.td net.TelnetConsole': None,
-]\
+#    'scrapy.extensions.td net.TelnetConsole': None,
+#}
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
@@ -91,5 +93,36 @@ ITEM_PIPELINES = {
 MONGODB_HOST = '127.0.0.1'
 MONGODB_PORT = 27017
 MONGODB_DBNAME = 'airasia'
-/ONGODB_DOCNAME = 'citysw'
+MONGODB_DOCNAME = 'citysw'
+
+# Enable scheduling storing requests queue in redis
+
+# 调度
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# Ensure all spiders share same duplicates fliter through redis.
+# 去重
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# 队列
+# SCHEDULER_QUEUE_CLASS = 'scrapy_redis.que.SpiderQueue'
+# SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderStack'
+# SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
+# 不清理redis队列
+# SCHEDULER_PERSIST = True
+# REDIS_HOST = '127.0.0.1'
+# REDIS_PORT = 6379
+
+# PROXIES = ['http://117.90.6.35:9000',
+#            'http://180.118.86.194:9000',
+#            'http://61.178.149.237:59042']
+
+# USER_AGENT_LIST = [
+#     'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36',
+#     'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19',
+#     'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; TencentTraveler 4.0)',
+#     'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
+#     'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; The World)',
+#     'Mozilla/5.0 (Android; Mobile; rv:14.0) Gecko/14.0 Firefox/14.0',
+#     'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)',
+#     'Mozilla/5.0 (iPad; CPU OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3',
+#     'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0']
 
